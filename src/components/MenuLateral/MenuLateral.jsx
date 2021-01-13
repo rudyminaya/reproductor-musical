@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../static/foxbel-music.png';
 import './MenuLateral.css';
-import { TituloLista, TituloPrincipal } from './Titulos/Titulos';
+import { TituloLista, TituloPrincipal } from '../Titulos/Titulos';
 export const MenuLateral = (props) => {
     return (
         <div className="menuLateral bg-dark-red-secondary h-screen lg:w-80">
