@@ -3,6 +3,7 @@
     grid-template-columns: auto 3fr;
 }
 .app__barraSuperior {
-    grid-template-columns: 2fr 1fr;
+    display: grid;
+    grid-template-columns: 80% 20%;
     @apply p-8;
 }
