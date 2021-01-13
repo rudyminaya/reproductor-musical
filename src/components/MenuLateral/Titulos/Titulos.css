@@ -1,0 +1,13 @@
+.tituloPrincipal {
+    @apply font-bold text-white text-left px-10;
+    font-size: 22px;
+    line-height: 27px;
+}
+.tituloLista {
+    @apply text-base text-left text-white leading-7 font-light cursor-pointer px-10;
+}
+.tituloLista:hover {
+    @apply text-red-principal font-bold;
+    padding-left: 35px;
+    border-inline-start: solid 5px #e86060;
+}
