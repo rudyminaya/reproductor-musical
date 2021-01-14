@@ -4,7 +4,10 @@ import { BsThreeDotsVertical, BsThreeDots } from 'react-icons/bs';
 import { FaPlay } from 'react-icons/fa';
 
 export const BotonReproducir = (props) => (
-    <button className="text-white font-light mr-5 bg-red-principal botonReproducir boton">
+    <button
+        className="text-white font-light mr-5 bg-red-principal botonReproducir boton"
+        onClick={props.onClick}
+    >
         {props.textoBoton}
     </button>
 );

@@ -3,7 +3,6 @@ import { TituloArtistaW } from './titulos';
 
 export const InfoReproduciendo = (props) => (
     <span className="text-white flex">
-        <TituloArtistaW nombreArtista="Artista - " />
-        {props.nombreAlbum}
+        <TituloArtistaW nombreArtista={props.nombreAlbum} />
     </span>
 );

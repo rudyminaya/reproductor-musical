@@ -1,5 +1,4 @@
 import React from 'react';
-import albumImg from '../../../static/album.jpg';
 import { TituloArtista, TituloPista } from '../../titulos/titulos';
 import './resultado.css';
 import { FaPlay } from 'react-icons/fa';

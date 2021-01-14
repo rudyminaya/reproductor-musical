@@ -11,6 +11,10 @@ import {
 import { CoverTrack } from '../albumImg/coverTrack';
 
 export const BannerArtista = (props) => {
+    const clickEnPlay = () => {
+        props.reproducir(props.resultados);
+    };
+
     return (
         <div className="flex">
             <div className="lg:max-w-xs imagenAlbum flex justify-center items-center cursor-pointer">
@@ -20,7 +24,7 @@ export const BannerArtista = (props) => {
             <div className="bg-red-transparency pt-8 pb-5 infoArtista flex flex-col justify-between">
                 <div>
                     <TituloPrincipal
-                        nombreTitulo={`${props.info.nombre_artista} - ${props.info.nombre_cancion}`}
+                        nombreTitulo={`${props.info.nombre_artista} - ${props.info.nombre_album}`}
                     />
                     <div className="flex items-center">
                         <p className="pl-10 mr-3 text-white">
@@ -40,7 +44,10 @@ export const BannerArtista = (props) => {
                     </p>
                 </div>
                 <div className="botonesDeBanner pl-10 flex items-center ">
-                    <BotonReproducir textoBoton="Reproducir" />
+                    <BotonReproducir
+                        onClick={clickEnPlay}
+                        textoBoton="Reproducir"
+                    />
                     <BotonSeguir textoBoton="Seguir" />
                     <HorizontalDots />
                 </div>

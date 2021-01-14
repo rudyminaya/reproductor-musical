@@ -7,12 +7,13 @@ import { TituloResultado } from './components/titulos/titulos';
 import { ListaResultados } from './components/resultados/listaResultados';
 import { Reproductor } from './components/reproductor/reproductor';
 import { useEffect, useState } from 'react';
+import { Howl, Howler } from 'howler';
 
 function App() {
-    // const [player, setPlayer] = useState({
-    //     volume: 1,
-    //     tracks: [],
-    // });
+    const [playlist, setPlaylist] = useState({
+        tracks: [],
+        indice: null,
+    });
 
     const [busqueda, setBusqueda] = useState({
         termino: '',
@@ -66,6 +67,24 @@ function App() {
         setBusqueda({ ...busqueda, termino: termino });
     };
 
+    const reproducir = (lista) => {
+        setPlaylist({
+            tracks: lista,
+            indice: 0,
+        });
+    };
+
+    const terminoCancion = () => {
+        console.log('cantidad', playlist.tracks.length);
+        console.log('indice', playlist.indice);
+        if (playlist.tracks.length > playlist.indice + 1) {
+            setPlaylist({
+                ...playlist,
+                indice: playlist.indice + 1,
+            });
+        }
+    };
+
     return (
         <div>
             <div className="app">
@@ -87,21 +106,30 @@ function App() {
                             <section>
                                 <BannerArtista
                                     info={busqueda.primer_resultado}
+                                    resultados={busqueda.resultados} //No es realmente necesario, pero se requiere para que la funcion reproducir tenga algo para mandar.
+                                    reproducir={reproducir}
                                 />
                             </section>
                             <section className="pt-8 pb-8">
                                 <TituloResultado nombreResultado="Resultados" />
                                 <ListaResultados
                                     resultados={busqueda.resultados}
+                                    reproducir={reproducir}
                                 />
                             </section>
                         </div>
                     )}
                 </main>
             </div>
-            <div className="barraControl">
-                <Reproductor />
-            </div>
+            {playlist.tracks.length > 0 && (
+                <div className="barraControl">
+                    <Reproductor
+                        track={playlist.tracks[playlist.indice]}
+                        reproduciendo={true}
+                        terminoCancion={terminoCancion}
+                    />
+                </div>
+            )}
         </div>
     );
 }
