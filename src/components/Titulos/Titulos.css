@@ -20,9 +20,13 @@
 }
 
 .tituloArtista {
-    @apply font-light text-sm text-gris;
+    @apply font-light text-base text-gris;
+}
+
+.tituloArtistaW {
+    @apply font-light text-base text-white;
 }
 
 .tituloPista {
-    @apply font-bold text-base;
+    @apply font-bold mt-1 text-base;
 }

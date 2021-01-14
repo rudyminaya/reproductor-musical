@@ -1,21 +1,21 @@
 import React from 'react';
 import { TituloPrincipal, TituloSeguidores } from '../titulos/titulos';
 import album from '../../static/album.jpg';
+import './bannerArtista.css';
+import { FaPlay } from 'react-icons/fa';
 import {
     BotonReproducir,
     BotonSeguir,
     HorizontalDots,
 } from '../botones/botones';
+import { CoverTrack } from '../albumImg/coverTrack';
 
 export const BannerArtista = (props) => {
     return (
         <div className="flex">
-            <div>
-                <img
-                    className="max-w-xs bg-gray-500"
-                    src={album}
-                    alt="esta es la foto del album del artista"
-                />
+            <div className="lg:max-w-xs imagenAlbum flex justify-center items-center cursor-pointer">
+                <FaPlay className="bannerPlay" />
+                <CoverTrack />
             </div>
             <div className="bg-red-transparency pt-8 pb-5 infoArtista flex flex-col justify-between">
                 <div>

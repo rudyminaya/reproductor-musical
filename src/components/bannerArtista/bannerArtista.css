@@ -1,0 +1,6 @@
+.bannerPlay {
+    @apply opacity-0 absolute text-white text-7xl transition-all duration-300 ease-linear;
+}
+.imagenAlbum:hover .bannerPlay {
+    opacity: 1;
+}

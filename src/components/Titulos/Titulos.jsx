@@ -20,6 +20,10 @@ export const TituloArtista = (props) => (
     <p className="tituloArtista">{props.nombreArtista}</p>
 );
 
+export const TituloArtistaW = (props) => (
+    <p className="tituloArtistaW">{props.nombreArtista}</p>
+);
+
 export const TituloSeguidores = (props) => (
     <p className="cantidadSeguidores">{`${props.cantidadSeguidores} seguidores`}</p>
 );
