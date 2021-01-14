@@ -10,6 +10,12 @@ module.exports = {
                 gris: '#828282',
                 'light-red': '#FF7676',
             },
+            width: {
+                banner: '250px',
+            },
+            height: {
+                banner: '250px',
+            },
         },
     },
     variants: {

@@ -3,7 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 
 export const BarraBusqueda = () => {
     return (
-        <button className="flex border justify-end items-center rounded-2xl px-4 py-1 w-2/4 border-gris">
+        <button className="flex border focus:outline-none cursor-default justify-end items-center rounded-2xl px-4 py-1 w-2/4 border-gris">
             <input
                 className="w-full focus:outline-none"
                 type="search"

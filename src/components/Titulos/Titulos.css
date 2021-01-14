@@ -11,3 +11,7 @@
     padding-left: 35px;
     border-inline-start: solid 5px #e86060;
 }
+
+.cantidadSeguidores {
+    @apply text-dark-red-secondary;
+}

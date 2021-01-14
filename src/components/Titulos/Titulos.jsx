@@ -1,5 +1,5 @@
 import React from 'react';
-import './Titulos.css';
+import './titulos.css';
 export const TituloPrincipal = (props) => (
     <h1 className="tituloPrincipal">{props.nombreTitulo}</h1>
 );
@@ -15,5 +15,5 @@ export const TituloPista = (props) => <p>{props.nombrePista}</p>;
 export const TituloArtista = (props) => <p>{props.nombreArtista}</p>;
 
 export const TituloSeguidores = (props) => (
-    <p>{`${props.cantidadSeguidores} seguidores`}</p>
+    <p className="cantidadSeguidores">{`${props.cantidadSeguidores} seguidores`}</p>
 );
