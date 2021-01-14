@@ -17,15 +17,48 @@ function App() {
     const [busqueda, setBusqueda] = useState({
         termino: '',
         resultados: [],
+        primer_resultado: {
+            nombre_cancion: '',
+            nombre_album: '',
+            cover_album: '',
+            nombre_artista: '',
+            seguidores_artista: '',
+        },
     });
+
+    const obtenerInfoArtista = (resultado) => {
+        return new Promise((res, rej) => {
+            let artista = resultado.data[0].artist.id;
+            fetch(`https://proxy.davidvpe.com/deezer/artist/${artista}`)
+                .then((resultado) => resultado.json())
+                .then((json) => {
+                    res({
+                        resultados: resultado.data,
+                        numero_fans: json.nb_fan,
+                    });
+                });
+        });
+    };
 
     useEffect(() => {
         // console.log('Voy a buscar ' + busqueda.termino);
         if (!busqueda.termino) return;
         fetch(`https://proxy.davidvpe.com/deezer/search?q=${busqueda.termino}`)
             .then((res) => res.json())
-            .then((json) => {
-                setBusqueda({ ...busqueda, resultados: json.data });
+            .then(obtenerInfoArtista)
+            .then((resultado) => {
+                let primer = resultado.resultados[0];
+                setBusqueda({
+                    ...busqueda,
+                    resultados: resultado.resultados,
+                    primer_resultado: {
+                        nombre_cancion: primer.title,
+                        nombre_album: primer.album.title,
+                        cover_album: primer.album.cover_big,
+                        nombre_artista: primer.artist.name,
+                        seguidores_artista: resultado.numero_fans,
+                    },
+                });
             });
     }, [busqueda.termino]);
 
@@ -52,7 +85,9 @@ function App() {
                     {busqueda.resultados.length > 0 && (
                         <div>
                             <section>
-                                <BannerArtista />
+                                <BannerArtista
+                                    info={busqueda.primer_resultado}
+                                />
                             </section>
                             <section className="pt-8 pb-8">
                                 <TituloResultado nombreResultado="Resultados" />
