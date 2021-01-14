@@ -1,6 +1,7 @@
 .app {
     display: grid;
-    grid-template-columns: auto 3fr;
+    grid-template: auto / auto 3fr;
+    min-height: 100vh;
 }
 .app__barraSuperior {
     display: grid;
