@@ -9,10 +9,10 @@ export const Resultado = (props) => {
         <div className="mb-5">
             <div className="resultadoAlbum w-auto lg:w-40 xl:w-auto flex cursor-pointer justify-center items-center">
                 <FaPlay className="resultadoPlay opacity-0 absolute text-white text-4xl lg:text-6xl" />
-                <img src={albumImg} />
+                <img src={props.album.cover_big} />
             </div>
-            <TituloPista nombrePista="The War is Over" />
-            <TituloArtista nombreArtista="Josh Baldwin" />
+            <TituloPista nombrePista={props.title} />
+            <TituloArtista nombreArtista={props.artist.name} />
         </div>
     );
 };
