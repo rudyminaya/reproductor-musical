@@ -1,6 +1,5 @@
 .tituloPrincipal {
-    @apply font-bold text-white text-left px-10;
-    font-size: 22px;
+    @apply font-bold text-white text-left px-10 text-semixl;
     line-height: 27px;
 }
 .tituloLista {
@@ -14,4 +13,8 @@
 
 .cantidadSeguidores {
     @apply text-dark-red-secondary;
+}
+
+.tituloResultado {
+    @apply text-red-principal font-bold text-semixl;
 }

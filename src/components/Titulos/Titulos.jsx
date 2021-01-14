@@ -4,7 +4,9 @@ export const TituloPrincipal = (props) => (
     <h1 className="tituloPrincipal">{props.nombreTitulo}</h1>
 );
 
-export const TituloResultado = (props) => <h1>{props.nombreResultado}</h1>;
+export const TituloResultado = (props) => (
+    <h1 className="tituloResultado">{props.nombreResultado}</h1>
+);
 
 export const TituloLista = (props) => (
     <h6 className="tituloLista">{props.nombreLista}</h6>

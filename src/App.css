@@ -5,5 +5,5 @@
 .app__barraSuperior {
     display: grid;
     grid-template-columns: 80% 20%;
-    @apply p-8;
+    @apply py-8;
 }

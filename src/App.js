@@ -3,6 +3,7 @@ import { BarraBusqueda } from './components/barraBusqueda/barraBusqueda';
 import { MenuLateral } from './components/menuLateral/menuLateral';
 import { Username } from './components/username/username';
 import { BannerArtista } from './components/bannerArtista/bannerArtista';
+import { TituloResultado } from './components/titulos/titulos';
 
 function App() {
     return (
@@ -10,7 +11,7 @@ function App() {
             <nav>
                 <MenuLateral />
             </nav>
-            <main>
+            <main className="px-8">
                 <section className="app__barraSuperior">
                     <div>
                         <BarraBusqueda />
@@ -20,8 +21,11 @@ function App() {
                     </div>
                 </section>
 
-                <section className="px-8">
+                <section>
                     <BannerArtista />
+                </section>
+                <section className="pt-10 pb-8">
+                    <TituloResultado nombreResultado="Resultados" />
                 </section>
             </main>
         </div>

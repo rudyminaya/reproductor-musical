@@ -5,6 +5,7 @@ module.exports = {
         extend: {
             colors: {
                 'red-principal': '#E86060',
+                'red-transparency': '#e86060b9',
                 'dark-red-secondary': '#662323',
                 'soft-gray': '#BDBDBD',
                 gris: '#828282',
@@ -15,6 +16,9 @@ module.exports = {
             },
             height: {
                 banner: '250px',
+            },
+            fontSize: {
+                semixl: '1.375rem',
             },
         },
     },
