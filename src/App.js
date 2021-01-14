@@ -120,21 +120,21 @@ function App() {
                         <div>
                             <BarraBusqueda buscar={buscar} />
                         </div>
-                        <div>
-                            <Username nombreUsuario="Francisco M." />
+                        <div className="hidden lg:block">
+                            <Username nombreUsuario="Rudy M." />
                         </div>
                     </section>
 
                     {busqueda.resultados.length > 0 && (
                         <div>
-                            <section>
+                            <section className="hidden lg:block">
                                 <BannerArtista
                                     info={busqueda.primer_resultado}
                                     resultados={busqueda.resultados} //No es realmente necesario, pero se requiere para que la funcion reproducir tenga algo para mandar.
                                     reproducir={reproducir}
                                 />
                             </section>
-                            <section className="pt-8 pb-8">
+                            <section className="pt-0 lg:pt-8 pb-8">
                                 <TituloResultado nombreResultado="Resultados" />
                                 <ListaResultados
                                     resultados={busqueda.resultados}

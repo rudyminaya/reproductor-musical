@@ -27,8 +27,11 @@ export const BannerArtista = (props) => {
 
     return (
         <div className="flex">
-            <div className="lg:max-w-xs imagenAlbum flex justify-center items-center cursor-pointer">
-                <button onClick={clickEnPlayAlbum}>
+            <div className="lg:max-w-xs imagenAlbum flex relative cursor-pointer">
+                <button
+                    className=" absolute top-32 right-52"
+                    onClick={clickEnPlayAlbum}
+                >
                     <FaPlay className="bannerPlay" />
                 </button>
                 <CoverTrack src={props.info.album.cover_big} />

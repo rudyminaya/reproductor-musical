@@ -39,8 +39,11 @@ export const Reproductor = (props) => {
                             <PrevPlay />
                         </button>
                     </div>
-                    <div className="bg-light-red p-4 rounded-full justify-self-center">
-                        <button onClick={props.cambiarReproduccion}>
+                    <div>
+                        <button
+                            className="bg-light-red p-4 rounded-full justify-self-center focus:outline-none bg-none"
+                            onClick={props.cambiarReproduccion}
+                        >
                             {props.reproduccion ? (
                                 <BotonPausa />
                             ) : (

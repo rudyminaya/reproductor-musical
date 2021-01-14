@@ -1,6 +1,6 @@
 .reproductorContenedor {
     display: grid;
-    grid-template-columns: 0.7fr 1fr 9fr 1.3fr;
+    grid-template-columns: 1fr 2fr 6fr 3fr;
 }
 .controles {
 }
