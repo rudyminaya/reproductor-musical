@@ -4,7 +4,7 @@ import './menuLateral.css';
 import { TituloLista, TituloPrincipal } from '../titulos/titulos';
 export const MenuLateral = (props) => {
     return (
-        <div className="menuLateral bg-dark-red-secondary h-screen lg:w-80">
+        <div className="menuLateral bg-dark-red-secondary h-full lg:w-80">
             <img className="px-10" src={logo} />
             <div className="menuLateral__library my-8">
                 <TituloPrincipal nombreTitulo="Mi Librería" />

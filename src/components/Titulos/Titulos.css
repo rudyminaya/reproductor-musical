@@ -16,5 +16,13 @@
 }
 
 .tituloResultado {
-    @apply text-red-principal font-bold text-semixl;
+    @apply text-red-principal mb-4 font-bold text-semixl;
+}
+
+.tituloArtista {
+    @apply font-light text-sm text-gris;
+}
+
+.tituloPista {
+    @apply font-bold text-base;
 }

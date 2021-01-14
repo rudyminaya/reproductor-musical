@@ -4,6 +4,7 @@ import { MenuLateral } from './components/menuLateral/menuLateral';
 import { Username } from './components/username/username';
 import { BannerArtista } from './components/bannerArtista/bannerArtista';
 import { TituloResultado } from './components/titulos/titulos';
+import { ListaResultados } from './components/resultados/listaResultados';
 
 function App() {
     return (
@@ -24,8 +25,9 @@ function App() {
                 <section>
                     <BannerArtista />
                 </section>
-                <section className="pt-10 pb-8">
+                <section className="pt-8 pb-8">
                     <TituloResultado nombreResultado="Resultados" />
+                    <ListaResultados />
                 </section>
             </main>
         </div>

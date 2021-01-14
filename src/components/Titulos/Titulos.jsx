@@ -12,9 +12,13 @@ export const TituloLista = (props) => (
     <h6 className="tituloLista">{props.nombreLista}</h6>
 );
 
-export const TituloPista = (props) => <p>{props.nombrePista}</p>;
+export const TituloPista = (props) => (
+    <p className="tituloPista">{props.nombrePista}</p>
+);
 
-export const TituloArtista = (props) => <p>{props.nombreArtista}</p>;
+export const TituloArtista = (props) => (
+    <p className="tituloArtista">{props.nombreArtista}</p>
+);
 
 export const TituloSeguidores = (props) => (
     <p className="cantidadSeguidores">{`${props.cantidadSeguidores} seguidores`}</p>
