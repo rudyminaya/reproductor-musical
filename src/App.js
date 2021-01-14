@@ -13,17 +13,18 @@ function App() {
     const [playlist, setPlaylist] = useState({
         tracks: [],
         indice: null,
+        reproduccion: true,
     });
 
     const [busqueda, setBusqueda] = useState({
         termino: '',
         resultados: [],
         primer_resultado: {
-            nombre_cancion: '',
             nombre_album: '',
             cover_album: '',
             nombre_artista: '',
             seguidores_artista: '',
+            canciones: [],
         },
     });
 
@@ -34,8 +35,22 @@ function App() {
                 .then((resultado) => resultado.json())
                 .then((json) => {
                     res({
-                        resultados: resultado.data,
-                        numero_fans: json.nb_fan,
+                        ...resultado,
+                        artista_fans: json.nb_fan,
+                    });
+                });
+        });
+    };
+
+    const obtenerInfoAlbum = (resultado) => {
+        return new Promise((res, rej) => {
+            let album = resultado.data[0].album.id;
+            fetch(`https://proxy.davidvpe.com/deezer/album/${album}/tracks`)
+                .then((resultado) => resultado.json())
+                .then((json) => {
+                    res({
+                        ...resultado,
+                        album_tracks: json.data,
                     });
                 });
         });
@@ -47,17 +62,19 @@ function App() {
         fetch(`https://proxy.davidvpe.com/deezer/search?q=${busqueda.termino}`)
             .then((res) => res.json())
             .then(obtenerInfoArtista)
+            .then(obtenerInfoAlbum)
             .then((resultado) => {
-                let primer = resultado.resultados[0];
+                let primer = resultado.data[0];
                 setBusqueda({
                     ...busqueda,
-                    resultados: resultado.resultados,
+                    resultados: resultado.data,
                     primer_resultado: {
-                        nombre_cancion: primer.title,
-                        nombre_album: primer.album.title,
-                        cover_album: primer.album.cover_big,
-                        nombre_artista: primer.artist.name,
-                        seguidores_artista: resultado.numero_fans,
+                        album: primer.album,
+                        artist: {
+                            ...primer.artist,
+                            seguidores: resultado.artista_fans,
+                        },
+                        canciones: resultado.album_tracks,
                     },
                 });
             });
@@ -67,20 +84,27 @@ function App() {
         setBusqueda({ ...busqueda, termino: termino });
     };
 
-    const reproducir = (lista) => {
+    const reproducir = (lista, indice) => {
         setPlaylist({
             tracks: lista,
-            indice: 0,
+            indice: indice || 0,
+            reproduccion: true,
         });
     };
 
-    const terminoCancion = () => {
-        console.log('cantidad', playlist.tracks.length);
-        console.log('indice', playlist.indice);
-        if (playlist.tracks.length > playlist.indice + 1) {
+    const cambiarReproduccion = () => {
+        setPlaylist({
+            ...playlist,
+            reproduccion: !playlist.reproduccion,
+        });
+    };
+
+    const skip = (cantidad) => {
+        let nuevoIndice = playlist.indice + cantidad;
+        if (nuevoIndice < playlist.tracks.length && nuevoIndice >= 0) {
             setPlaylist({
                 ...playlist,
-                indice: playlist.indice + 1,
+                indice: playlist.indice + cantidad,
             });
         }
     };
@@ -124,9 +148,10 @@ function App() {
             {playlist.tracks.length > 0 && (
                 <div className="barraControl">
                     <Reproductor
+                        reproduccion={playlist.reproduccion}
+                        cambiarReproduccion={cambiarReproduccion}
                         track={playlist.tracks[playlist.indice]}
-                        reproduciendo={true}
-                        terminoCancion={terminoCancion}
+                        skip={skip}
                     />
                 </div>
             )}

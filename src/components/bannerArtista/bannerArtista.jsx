@@ -9,30 +9,42 @@ import {
     HorizontalDots,
 } from '../botones/botones';
 import { CoverTrack } from '../albumImg/coverTrack';
+import { info } from 'autoprefixer';
 
 export const BannerArtista = (props) => {
     const clickEnPlay = () => {
         props.reproducir(props.resultados);
     };
 
+    const clickEnPlayAlbum = () => {
+        let cancionesConAlbum = props.info.canciones.map((cancion) => ({
+            ...cancion,
+            album: props.info.album,
+        }));
+        console.log(cancionesConAlbum);
+        props.reproducir(cancionesConAlbum);
+    };
+
     return (
         <div className="flex">
             <div className="lg:max-w-xs imagenAlbum flex justify-center items-center cursor-pointer">
-                <FaPlay className="bannerPlay" />
-                <CoverTrack src={props.info.cover_album} />
+                <button onClick={clickEnPlayAlbum}>
+                    <FaPlay className="bannerPlay" />
+                </button>
+                <CoverTrack src={props.info.album.cover_big} />
             </div>
             <div className="bg-red-transparency pt-8 pb-5 infoArtista flex flex-col justify-between">
                 <div>
                     <TituloPrincipal
-                        nombreTitulo={`${props.info.nombre_artista} - ${props.info.nombre_album}`}
+                        nombreTitulo={`${props.info.artist.name} - ${props.info.album.title}`}
                     />
                     <div className="flex items-center">
                         <p className="pl-10 mr-3 text-white">
-                            {`Lo mejor de ${props.info.nombre_artista}`}
+                            {`Lo mejor de ${props.info.artist.name}`}
                         </p>
                         <TituloSeguidores
                             className="self"
-                            cantidadSeguidores={props.info.seguidores_artista}
+                            cantidadSeguidores={props.info.artist.seguidores}
                         />
                     </div>
                     <p className="pl-10 pt-3 lg:w-5/6 sm:w-11/12 text-white">

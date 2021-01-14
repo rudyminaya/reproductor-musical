@@ -1,7 +1,7 @@
 import React from 'react';
 import './botones.css';
 import { BsThreeDotsVertical, BsThreeDots } from 'react-icons/bs';
-import { FaPlay } from 'react-icons/fa';
+import { FaPlay, FaPause } from 'react-icons/fa';
 
 export const BotonReproducir = (props) => (
     <button
@@ -27,6 +27,7 @@ export const VerticalDots = () => (
 );
 
 export const BotonPlay = () => <FaPlay className="botonControl" />;
+export const BotonPausa = () => <FaPause className="botonControl" />;
 
 export const NextPlay = () => (
     <FaPlay className="border-r border-white botonControl botonNext" />
