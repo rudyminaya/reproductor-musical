@@ -134,7 +134,7 @@ function App() {
                                     reproducir={reproducir}
                                 />
                             </section>
-                            <section className="pt-0 lg:pt-8 pb-8">
+                            <section className="pt-0 lg:pt-8 lg:pb-8 pb-32">
                                 <TituloResultado nombreResultado="Resultados" />
                                 <ListaResultados
                                     resultados={busqueda.resultados}

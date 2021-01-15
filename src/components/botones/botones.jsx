@@ -5,7 +5,7 @@ import { FaPlay, FaPause } from 'react-icons/fa';
 
 export const BotonReproducir = (props) => (
     <button
-        className="text-white font-light mr-5 bg-red-principal botonReproducir boton"
+        className="text-white font-light mr-5 bg-red-principal botonReproducir boton hover:opacity-80"
         onClick={props.onClick}
     >
         {props.textoBoton}

@@ -27,16 +27,13 @@ export const BannerArtista = (props) => {
 
     return (
         <div className="flex">
-            <div className="lg:max-w-xs imagenAlbum flex relative cursor-pointer">
-                <button
-                    className=" absolute top-32 right-52"
-                    onClick={clickEnPlayAlbum}
-                >
-                    <FaPlay className="bannerPlay" />
-                </button>
+            <div className="xl:w-xs lg:w-auto imagenAlbum flex flex-col justify-center items-center cursor-pointer">
                 <CoverTrack src={props.info.album.cover_big} />
+                <a className="absolute" onClick={clickEnPlayAlbum}>
+                    <FaPlay className="bannerPlay" />
+                </a>
             </div>
-            <div className="bg-red-transparency pt-8 pb-5 infoArtista flex flex-col justify-between">
+            <div className="bg-dark-red-secondary text-xs xl:text-base pt-3 xl:pt-8 pb-5 infoArtista flex flex-col justify-between">
                 <div>
                     <TituloPrincipal
                         nombreTitulo={`${props.info.artist.name} - ${props.info.album.title}`}
@@ -58,7 +55,7 @@ export const BannerArtista = (props) => {
                         minus.
                     </p>
                 </div>
-                <div className="botonesDeBanner pl-10 flex items-center ">
+                <div className="botonesDeBanner hidden xl:flex pl-10 items-center ">
                     <BotonReproducir
                         onClick={clickEnPlay}
                         textoBoton="Reproducir"

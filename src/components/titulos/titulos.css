@@ -24,9 +24,9 @@
 }
 
 .tituloArtistaW {
-    @apply font-light text-base text-white;
+    @apply font-light lg:text-base text-lg text-white;
 }
 
 .tituloPista {
-    @apply font-bold mt-1 text-base;
+    @apply font-bold mt-1 lg:text-base text-xl;
 }

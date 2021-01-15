@@ -1,6 +1,4 @@
 .reproductorContenedor {
-    display: grid;
     grid-template-columns: 1fr 2fr 6fr 3fr;
-}
-.controles {
+    @apply lg:grid fixed bottom-0 px-5 lg:px-0 w-full h-44 pt-3 lg:pt-0 lg:h-24 bg-red-principal;
 }
