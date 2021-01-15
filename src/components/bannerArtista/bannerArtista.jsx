@@ -57,7 +57,7 @@ export const BannerArtista = (props) => {
                 </div>
                 <div className="botonesDeBanner hidden xl:flex pl-10 items-center ">
                     <BotonReproducir
-                        onClick={clickEnPlay}
+                        onClick={clickEnPlayAlbum}
                         textoBoton="Reproducir"
                     />
                     <BotonSeguir textoBoton="Seguir" />
